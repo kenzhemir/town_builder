@@ -1,10 +1,12 @@
 import React from "react";
 
-const ResourceSprite = ({ color, ...rest }) => {
+const ResourceSprite = ({ color, style, className = "", ...rest }) => {
 	return (
-		<div className="resource" style={{ backgroundColor: color }} {...rest}>
-			X
-		</div>
+		<div
+			className={"resource " + className}
+			style={{ backgroundColor: color, ...style }}
+			{...rest}
+		></div>
 	);
 };
 

@@ -19,11 +19,10 @@ const MouseMove = ({ children }) => {
 		<div
 			style={{
 				display: children != null && started ? "block" : "none",
-				position: "fixed",
 				top: position.y,
 				left: position.x,
-				pointerEvents: "none",
 			}}
+			className="mouse-follower"
 		>
 			{children}
 		</div>

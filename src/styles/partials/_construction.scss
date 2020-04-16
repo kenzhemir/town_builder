@@ -1,0 +1,17 @@
+.construction-site {
+	display: flex;
+	width: 500px;
+	height: 500px;
+	background-color: #ffe083;
+	position: relative;
+	margin: auto;
+	justify-content: center;
+	align-items: center;
+	color: darken(#ffe083, 40%);
+	user-select: none;
+}
+
+.construction-block {
+	display: block;
+	position: absolute;
+}

@@ -1,4 +1,6 @@
 @import "./partials/tooltip";
+@import "./partials/construction";
+@import "./partials/mouse-follow";
 
 .App {
 	text-align: center;
@@ -10,4 +12,9 @@
 	height: 30px;
 	border: 1px solid black;
 	background-color: #61dafb;
+	user-select: none;
+}
+
+.cursor-hidden {
+	cursor: none;
 }

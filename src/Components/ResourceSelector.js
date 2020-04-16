@@ -1,42 +1,20 @@
-import React, { useState, useEffect } from "react";
-import withMouseMove from "../hoc/withMouseMove";
+import React from "react";
 import withOnSelect from "../hoc/withOnSelect";
 import Resource from "./Resource";
 
 const resourceData = [
-	{ id: "brick", displayName: "Brick", color: "brown" },
+	{ id: "brick", displayName: "Brick", color: "firebrick" },
 	{ id: "stone", displayName: "Stone", color: "gray" },
+	{ id: "wood", displayName: "Wood", color: "saddlebrown" },
+	{ id: "wheat", displayName: "Wheat", color: "orange" },
+	{ id: "glass", displayName: "Glass", color: "blue" },
 ];
 
-const ResourceSelector = () => {
-	const [resource, setResource] = useState(null);
-	const MouseAttachedResource = withMouseMove(Resource);
+const ResourceSelector = ({ setResource }) => {
 	const SelectableResource = withOnSelect(Resource);
-
-	useEffect(() => {
-		console.log("adding effect");
-		const eventHandler = function (e) {
-			if (resource !== null) {
-				e.preventDefault();
-				setResource(null);
-			}
-		};
-		window.addEventListener("contextmenu", eventHandler);
-		console.log("adding onclick");
-		return () => {
-			window.removeEventListener("contextmenu", eventHandler);
-			console.log("removing onclick");
-		};
-	}, [resource]);
 
 	return (
 		<>
-			{resource && (
-				<MouseAttachedResource
-					name={resource.displayName}
-					color={resource.color}
-				/>
-			)}
 			{resourceData.map((res) => (
 				<SelectableResource
 					key={res.id}
@@ -45,7 +23,6 @@ const ResourceSelector = () => {
 					name={res.displayName}
 				/>
 			))}
-			<div>Resource: {resource && resource.displayName}</div>
 		</>
 	);
 };
