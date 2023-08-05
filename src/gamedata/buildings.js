@@ -1,13 +1,21 @@
 export const buildings = {
-  house: {
-    id: "house",
-    displayName: "House",
-    icon: "🏠",
-    blueprints: defaultOrientations([
-      [null, "brick"],
-      ["wheat", "glass"],
-    ]),
-  },
+    house: {
+      id: "house",
+      displayName: "House",
+      icon: "🏠",
+      blueprints: defaultOrientations([
+        [null, "brick"],
+        ["wheat", "glass"],
+      ]),
+    },
+    well: {
+      id: "well",
+      displayName: "Well",
+      icon: "🕳️",
+      blueprints: rotatable([
+        ["stone", "wood"],
+      ]),
+    },
 };
 
 export const buildingData = Object.values(buildings);

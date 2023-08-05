@@ -40,15 +40,14 @@ const ConstructionSite = ({ sizeX = 4, sizeY = 4 }) => {
   }, [isSomethingPickedUp, reset]);
 
   const onClickHandler = (cell) => {
-    if (resource && !cell.resource) {
+    if (resource && !cell.resource && !cell.building) {
       placeResource(resource, cell);
       reset();
-    } else if (building && cell.resource) {
+    } else if (building && isCellSelected(cell)) {
       placeBuilding(building, isCellSelected, cell);
       resetMask();
       reset();
-    } else if (cell.resource) {
-		console.log(cell)
+    } else if (!building && !resource && cell.resource) {
       toggleCell(cell);
     }
   };
