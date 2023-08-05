@@ -21,11 +21,12 @@ export default function useConstructionSite(sizeX, sizeY) {
   }
 
   function placeBuilding(building, isCellSelected, cell) {
-    const newTable = removeResources(table, isCellSelected);
+    const newTable = structuredClone(table);
     newTable[cell.i][cell.j] = {
       ...cell,
       building,
     };
+    removeResources(newTable, isCellSelected);
     setTable(newTable);
   }
 
@@ -37,14 +38,11 @@ export default function useConstructionSite(sizeX, sizeY) {
 }
 
 function removeResources(table, isCellSelected) {
-  const newTable = structuredClone(table);
-  for (let i = 0; i < newTable.length; i++) {
-    for (let j = 0; j < newTable[0].length; j++) {
-      if (isCellSelected(newTable[i][j])) {
-        newTable[i][j].resource = null;
+  for (let i = 0; i < table.length; i++) {
+    for (let j = 0; j < table[0].length; j++) {
+      if (isCellSelected(table[i][j])) {
+        table[i][j].resource = null;
       }
     }
   }
-
-  return newTable;
 }

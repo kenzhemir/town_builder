@@ -48,6 +48,7 @@ const ConstructionSite = ({ sizeX = 4, sizeY = 4 }) => {
       resetMask();
       reset();
     } else if (cell.resource) {
+		console.log(cell)
       toggleCell(cell);
     }
   };
