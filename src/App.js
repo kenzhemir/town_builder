@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import BuildingSelector from "./Components/BuildingSelector";
+import BuildingPatterns from "./Components/BuildingPatterns";
 import BuildingSprite from "./Components/BuildingSprite";
 import ConstructionSite from "./Components/ConstructionSite";
 import ResourceSelector from "./Components/ResourceSelector";
@@ -43,20 +43,21 @@ function App() {
         />
       )}
       {building && <MouseAttachedBuilding building={building} />}
-
+		<h1>Town Builder Game</h1>
+      <div>
+        <BuildingPatterns />
+      </div>
       <p>Left click on resource to select.</p>
       <p>Right click on resource to unselect.</p>
       <div>
         <ResourceSelector setResource={setResource} />
-      </div>
-      <div>
-        <BuildingSelector setBuilding={setBuilding} />
       </div>
       <div>Resource: {resource && resource.displayName}</div>
       <div>Building: {building && building.displayName}</div>
       <ConstructionSite
         selectedResource={resource}
         selectedBuilding={building}
+        setBuilding={setBuilding}
         onActionReset={reset}
       />
     </div>

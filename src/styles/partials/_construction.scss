@@ -34,4 +34,19 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
+  &.selected {
+    background-color: darken(#ffe083, 10%);
+  }
+}
+
+.building-offers {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 20px;
+  & .buildings {
+  }
 }

@@ -6,7 +6,7 @@ const BlueprintSprite = ({ blueprint, className = "", ...rest }) => {
   return (
     <div className="blueprint-sprite" {...rest}>
       {blueprint.map((row, i) => (
-        <div className="blueprint-sprite-row">
+        <div className="blueprint-sprite-row" key={`spriterow${i}-${blueprint.displayName}`}>
           {row.map((resourceId, j) =>
             resourceId ? (
               <ResourceSprite
