@@ -15,9 +15,9 @@ export default function BuildingsOffer({ mask, setBuilding }) {
     .filter(({ blueprint }) => blueprint);
 
   return (
-    <div class="building-offers">
+    <div className="building-offers">
       <h5>Building you can place</h5>
-      <div class="buildings">
+      <div className="buildings">
         {availableBuildings.length
           ? availableBuildings.map(({ building }) => (
               <SelectableBuilding

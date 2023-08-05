@@ -38,6 +38,7 @@
     ]
   },
   "devDependencies": {
+    "eslint-plugin-import": "^2.28.0",
     "surge": "^0.23.1"
   }
 }
