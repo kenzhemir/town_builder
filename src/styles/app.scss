@@ -1,20 +1,43 @@
 @import "./partials/tooltip";
 @import "./partials/construction";
 @import "./partials/mouse-follow";
+@import "./partials/blueprint";
 
 .App {
-	text-align: center;
+  text-align: center;
 }
 
 .resource {
-	display: block;
-	width: 30px;
-	height: 30px;
-	border: 1px solid black;
-	background-color: #61dafb;
-	user-select: none;
+  display: block;
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  background-color: #61dafb;
+  user-select: none;
+}
+
+.building {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  background-color: white;
+  user-select: none;
+}
+
+.building-tooltip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .cursor-hidden {
-	cursor: none;
+  cursor: none;
+}
+
+.spacing10 {
+  margin: 10px;
 }

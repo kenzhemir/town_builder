@@ -1,6 +1,6 @@
 import React from "react";
 
-const ResourceSprite = ({ color, style, className = "", ...rest }) => {
+const ResourceSprite = ({ color, style = {}, className = "", ...rest }) => {
 	return (
 		<div
 			className={"resource " + className}

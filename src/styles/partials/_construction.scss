@@ -1,17 +1,37 @@
 .construction-site {
-	display: flex;
-	width: 500px;
-	height: 500px;
-	background-color: #ffe083;
-	position: relative;
-	margin: auto;
-	justify-content: center;
-	align-items: center;
-	color: darken(#ffe083, 40%);
-	user-select: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 500px;
+  background-color: #ffe083;
+  position: relative;
+  margin: auto;
+  color: darken(#ffe083, 40%);
+  user-select: none;
 }
 
 .construction-block {
-	display: block;
-	position: absolute;
+  display: block;
+  position: absolute;
+}
+
+.construction-site .row {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.construction-site .cell {
+  height: 100%;
+  flex-grow: 1;
+  outline: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
