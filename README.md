@@ -1,6 +1,6 @@
 # Town Builder
 
-This is a small project to create a board game in the browser
+This is a small project to create a board game in the browser  
 [Demo](https://town-builder.surge.sh/)
 
 ## Available Scripts
