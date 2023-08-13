@@ -1,8 +1,11 @@
-import { buildingData } from "../gamedata/buildings";
-import withOnSelect from "../hoc/withOnSelect";
+import { usePickItem } from "contexts/PickContext";
+import { buildingData } from "../../gamedata/buildings";
+import withOnSelect from "../../hoc/withOnSelect";
 import Building from "./Building";
+import BuildingSprite from "./BuildingSprite";
 
-export default function BuildingsOffer({ mask, setBuilding }) {
+export default function BuildingsOffer({ mask }) {
+  const setBuilding = usePickItem();
   const SelectableBuilding = withOnSelect(Building);
 
   const availableBuildings = buildingData
@@ -21,9 +24,13 @@ export default function BuildingsOffer({ mask, setBuilding }) {
         {availableBuildings.length
           ? availableBuildings.map(({ building }) => (
               <SelectableBuilding
-                building={{...building, blueprints: [mask]}}
+                building={{ ...building, blueprints: [mask] }}
                 key={building.displayName}
-                onSelect={() => setBuilding(building)}
+                onSelect={() =>
+                  setBuilding(() => <BuildingSprite building={building} />, {
+                    building,
+                  })
+                }
               />
             ))
           : "No available buildings found for your pattern!"}

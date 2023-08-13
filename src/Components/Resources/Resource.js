@@ -1,5 +1,5 @@
+import withTooltip from "hoc/withTooltip";
 import React from "react";
-import withTooltip from "../hoc/withTooltip";
 import ResourceSprite from "./ResourceSprite";
 
 const Resource = ({ name, color, ...rest }) => {
@@ -8,7 +8,7 @@ const Resource = ({ name, color, ...rest }) => {
 	return (
 		<LabeledResource
 			tooltipText={name}
-			tooltipPosition="bottom"
+			tooltipPosition="left"
 			color={color}
 			{...rest}
 		/>

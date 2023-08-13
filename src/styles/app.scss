@@ -52,3 +52,15 @@
 	margin: 20px;
   }
 }
+
+.vertical-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.game {
+  display: flex;
+  align-items: center;
+}

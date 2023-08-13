@@ -1,5 +1,5 @@
 import React from "react";
-import { buildingData } from "../gamedata/buildings";
+import { buildingData } from "../../gamedata/buildings";
 import Building from "./Building";
 
 const BuildingPatterns = () => {

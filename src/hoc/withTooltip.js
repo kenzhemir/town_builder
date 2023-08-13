@@ -3,7 +3,7 @@ import React from "react";
 // styles in ./styles/partials/tooltip.scss
 const withTooltip = (Component) => ({
 	tooltipText,
-	tooltipPosition = "top", //top, left, right, bottom
+	tooltipPosition = "right", //top, left, right, bottom
 	...rest
 }) => {
 	return (

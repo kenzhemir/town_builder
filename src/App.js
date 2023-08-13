@@ -1,51 +1,36 @@
-import React, { useEffect, useState } from "react";
+import React, { useReducer } from "react";
 
-import BuildingPatterns from "./Components/BuildingPatterns";
-import ConstructionSite from "./Components/ConstructionSite";
-import gameloop from "./engine/gameloop";
-import { resources } from "./gamedata/resources";
+import { RouterProvider } from "react-router";
+import { createBrowserRouter } from "react-router-dom";
+import MouseFollower from "./Components/MouseFollower";
+import {
+  PickContext,
+  PickDispatchContext,
+  pickReducer,
+  useRightClickReset,
+} from "./contexts/PickContext";
+import { routes } from "./routes";
 import "./styles/app.scss";
 
-function App() {
-  const [info, setInfo] = useState("");
-  const [isColorChoiceOn, setIsColorChoiceOn] = useState(false);
-  const [sendChoice, setSendChoice] = useState(null);
-  useEffect(() => {
-    function chooseResource() {
-      setIsColorChoiceOn(true);
-      return new Promise((resolve) => {
-        setSendChoice({ resolve });
-      });
-    }
+const router = createBrowserRouter(routes);
 
-    function requestPlacement() {
-      return new Promise((res) => setTimeout(() => res({isFinished: false}), 5000));
-    }
-    gameloop(setInfo, chooseResource, requestPlacement);
-  }, []);
+function App() {
+  const [pickedItem, pickDispatch] = useReducer(pickReducer, null);
+
+  const MouseFollowerComponent = pickedItem?.Component;
+  useRightClickReset(pickDispatch);
+
   return (
-    <div className="App">
-      <h1>Town Builder Game</h1>
-      <div>
-        <BuildingPatterns />
-      </div>
-      <div>{info}</div>
-      {isColorChoiceOn && (
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            sendChoice?.resolve(resources[e.target.elements.resource.value]);
-          }}
-        >
-          <input name="resource" />
-          <button>Submit</button>
-        </form>
-      )}
-      <div className="gameboards">
-        <ConstructionSite />
-        <ConstructionSite />
-      </div>
-    </div>
+    <PickContext.Provider value={pickedItem}>
+      <PickDispatchContext.Provider value={pickDispatch}>
+        {MouseFollowerComponent ? (
+          <MouseFollower boundsRef={pickedItem.boundsRef}>
+            <MouseFollowerComponent />
+          </MouseFollower>
+        ) : null}
+        <RouterProvider router={router} />
+      </PickDispatchContext.Provider>
+    </PickContext.Provider>
   );
 }
 

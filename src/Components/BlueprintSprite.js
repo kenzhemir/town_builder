@@ -1,6 +1,6 @@
 import React from "react";
 import { resources } from "../gamedata/resources";
-import ResourceSprite from "./ResourceSprite";
+import ResourceSprite from "./Resources/ResourceSprite";
 
 const BlueprintSprite = ({ blueprint, className = "", ...rest }) => {
   return (

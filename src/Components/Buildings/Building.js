@@ -1,6 +1,6 @@
+import BlueprintSprite from "Components/BlueprintSprite";
+import withTooltip from "hoc/withTooltip";
 import React from "react";
-import withTooltip from "../hoc/withTooltip";
-import BlueprintSprite from "./BlueprintSprite";
 import BuildingSprite from "./BuildingSprite";
 
 const Building = ({ building, ...rest }) => {
